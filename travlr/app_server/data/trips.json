@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Richmond, Virginia",
+    "length": "2 nights / 3 days",
+    "rating": "4",
+    "description": "Explore the historic capital of Virginia.",
+    "image": "richmond.jpg"
+  },
+  {
+    "name": "Paris, France",
+    "length": "5 nights / 6 days",
+    "rating": "5",
+    "description": "Visit the city of lights and romance.",
+    "image": "paris.jpg"
+  },
+  {
+    "name": "Tokyo, Japan",
+    "length": "6 nights / 7 days",
+    "rating": "5",
+    "description": "Experience modern technology and culture.",
+    "image": "tokyo.jpg"
+  }
+]
