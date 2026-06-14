@@ -1,0 +1,66 @@
+<div class="container py-4" style="max-width: 700px;">
+    <div class="d-flex align-items-center mb-4">
+        <button class="btn btn-outline-secondary me-3" (click)="onBack()">&larr; Back</button>
+        <h3 class="mb-0">Edit Trip</h3>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Trip Code *</label>
+                <input type="text" class="form-control" formControlName="code"
+                       [ngClass]="{'is-invalid': submitted && f['code'].errors}">
+                <div class="invalid-feedback">Trip code is required (min 3 characters).</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Trip Name *</label>
+                <input type="text" class="form-control" formControlName="name"
+                       [ngClass]="{'is-invalid': submitted && f['name'].errors}">
+                <div class="invalid-feedback">Trip name is required.</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Length *</label>
+                <input type="text" class="form-control" formControlName="length"
+                       [ngClass]="{'is-invalid': submitted && f['length'].errors}">
+                <div class="invalid-feedback">Length is required.</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Start Date *</label>
+                <input type="date" class="form-control" formControlName="start"
+                       [ngClass]="{'is-invalid': submitted && f['start'].errors}">
+                <div class="invalid-feedback">Start date is required.</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Resort *</label>
+                <input type="text" class="form-control" formControlName="resort"
+                       [ngClass]="{'is-invalid': submitted && f['resort'].errors}">
+                <div class="invalid-feedback">Resort is required.</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Per Person Price *</label>
+                <input type="text" class="form-control" formControlName="perPerson"
+                       [ngClass]="{'is-invalid': submitted && f['perPerson'].errors}">
+                <div class="invalid-feedback">Price is required.</div>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Image Filename *</label>
+                <input type="text" class="form-control" formControlName="image"
+                       [ngClass]="{'is-invalid': submitted && f['image'].errors}">
+                <div class="invalid-feedback">Image filename is required.</div>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Description *</label>
+                <textarea class="form-control" rows="3" formControlName="description"
+                          [ngClass]="{'is-invalid': submitted && f['description'].errors}"></textarea>
+                <div class="invalid-feedback">Description is required.</div>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn btn-primary flex-fill">Update Trip</button>
+            <button type="button" class="btn btn-outline-secondary flex-fill" (click)="onBack()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<div class="card h-100 shadow-sm">
+    <img class="card-img-top" [src]="'assets/images/' + trip.image" [alt]="trip.name"
+         onerror="this.src='assets/images/placeholder.jpg'">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ trip.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ trip.resort }}</h6>
+        <p class="card-text flex-grow-1">{{ trip.description }}</p>
+        <ul class="list-unstyled mb-3">
+            <li><strong>Code:</strong> {{ trip.code }}</li>
+            <li><strong>Length:</strong> {{ trip.length }}</li>
+            <li><strong>Start:</strong> {{ trip.start | date:'mediumDate' }}</li>
+            <li><strong>Per Person:</strong> {{ trip.perPerson }}</li>
+        </ul>
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm flex-fill" (click)="editTrip(trip.code)">
+                Edit Trip
+            </button>
+            <button class="btn btn-danger btn-sm flex-fill" (click)="deleteTrip(trip.code)">
+                Delete
+            </button>
+        </div>
+    </div>
+</div>
