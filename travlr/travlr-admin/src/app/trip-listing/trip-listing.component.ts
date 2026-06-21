@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../trip-data.service';
 import { TripCardComponent } from '../trip-card/trip-card.component';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-trip-listing',
@@ -17,7 +18,10 @@ export class TripListingComponent implements OnInit {
     message: string = '';
     error: string = '';
 
-    constructor(private tripDataService: TripDataService) { }
+    constructor(
+        private tripDataService: TripDataService,
+        public authService: AuthService
+    ) { }
 
     ngOnInit(): void {
         this.loadTrips();
@@ -48,7 +52,9 @@ export class TripListingComponent implements OnInit {
             },
             error: (err) => {
                 console.error(err);
-                this.error = 'Failed to delete trip.';
+                this.error = err.status === 401
+                    ? 'Your session has expired. Please log in again.'
+                    : 'Failed to delete trip.';
             }
         });
     }

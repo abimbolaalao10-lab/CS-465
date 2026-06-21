@@ -11,7 +11,7 @@
             <li><strong>Start:</strong> {{ trip.start | date:'mediumDate' }}</li>
             <li><strong>Per Person:</strong> {{ trip.perPerson }}</li>
         </ul>
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2" *ngIf="isLoggedIn">
             <button class="btn btn-primary btn-sm flex-fill" (click)="editTrip(trip.code)">
                 Edit Trip
             </button>

@@ -1,5 +1,13 @@
 <nav class="navbar navbar-dark bg-dark px-4 mb-0">
     <span class="navbar-brand fw-bold">Travlr Admin</span>
-    <span class="text-light small">Trip Administration Portal</span>
+    <div class="d-flex align-items-center gap-3">
+        <span class="text-light small">Trip Administration Portal</span>
+        <button *ngIf="authService.isLoggedIn()" class="btn btn-outline-light btn-sm" (click)="onLogout()">
+            Log Out
+        </button>
+        <a *ngIf="!authService.isLoggedIn()" class="btn btn-outline-light btn-sm" routerLink="/login">
+            Log In
+        </a>
+    </div>
 </nav>
 <router-outlet></router-outlet>
